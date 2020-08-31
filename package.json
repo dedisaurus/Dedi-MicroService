@@ -1,5 +1,5 @@
 {
-  "name": "Dedi-Microservice",
+  "name": "dedimicroservice",
   "version": "1.0.0",
   "description": "REST endpoint for MicroService",
   "main": "server.js",
@@ -12,21 +12,27 @@
     "url": "git+https://github.com/dedisaurus/Dedi-MicroService.git"
   },
   "author": "Dedi",
-  "license": "",
+  "license": "ICS",
   "bugs": {
     "url": "https://github.com/dedisaurus/Dedi-MicroService.git"
   },
   "homepage": "https://github.com/dedisaurus/Dedi-MicroService.git#readme",
   "dependencies": {
+    "and": "0.0.3",
     "dotenv": "^7.0.0",
     "express": "^4.17.1",
     "http": "0.0.1-security",
-    "koa": "^2.7.0",
+    "koa": "^2.13.0",
     "koa-better-router": "^2.1.1",
     "koa-body": "^4.1.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^9.4.0",
     "kue": "^0.11.6",
     "mongoose": "^5.10.2",
-    "redis-server": "^1.2.2"
+    "redis-server": "^1.2.2",
+    "swagger-ui-express": "^4.1.4",
+    "swagger2": "^2.0.0",
+    "swagger2-koa": "^2.0.0"
   },
   "directories": {
     "lib": "lib"

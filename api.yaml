@@ -1,0 +1,184 @@
+swagger: "2.0"
+info:
+  title: "Swagger Example"
+  description: >
+    This is an example Koa API that provides two endpoints - a health check and a login.
+  version: "1.0.0"
+host: "localhost:8080"
+schemes:
+  - "http"
+paths:
+  /api/task:
+    post:
+      summary: "Insert new data."
+      description: "This endpoint allows users insert new data."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Please insert correct data."
+          required: true
+          schema:
+            $ref: "#/definitions/CreateRequest"
+      responses:
+        201:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/CreateResponse"
+        400:
+          $ref: '#/responses/400'
+        401:
+          $ref: '#/responses/401'
+        500:
+          $ref: '#/responses/500'
+
+  /api/taskByIdentityNumber/{id}:
+    get:
+      summary: "get data by Identity Number."
+      description: "This endpoint allows users get data by Identity number."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "path"
+          name: "id"
+          description: "Please insert correct data."
+          required: true
+          schema:
+            $ref: "#/definitions/IdentityRequest"
+      responses:
+        201:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/IdentityResponse"
+        400:
+          $ref: '#/responses/400'
+        401:
+          $ref: '#/responses/401'
+        500:
+          $ref: '#/responses/500'
+
+  /api/taskByAccNumber/{id}:
+    get:
+      summary: "get data by Account Number."
+      description: "This endpoint allows users get data by account number."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "path"
+          name: "id"
+          description: "Please insert correct data."
+          required: true
+          schema:
+            $ref: "#/definitions/AccountNumberRequest"
+      responses:
+        201:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/AccountNumberResponse"
+        400:
+          $ref: '#/responses/400'
+        401:
+          $ref: '#/responses/401'
+        500:
+          $ref: '#/responses/500'
+
+responses:
+  400:
+    description: Bad Request
+    schema:
+      $ref: '#/definitions/Error'
+  401:
+    description: Unauthorized
+    schema:
+      $ref: '#/definitions/Error'
+  500:
+    description: Internal Server Error
+    schema:
+      $ref: '#/definitions/Error'
+
+definitions:
+
+  CreateRequest:
+    type: "object"
+    required:
+    - username 
+    - accountnumber
+    - emailaddress 
+    - identitynumber 
+    properties:
+      username:
+        type: "string"
+        example: "username"
+      accountnumber:
+        type: "string"
+        example: "MKD-21313"
+      emailaddress:
+        type: "string"
+        example: "useraja@yahoo.com"
+      identitynumber :
+        type: "string"
+        example : "12313nnkjiid"
+
+  CreateResponse:
+    type: "object"
+    properties:
+      data:
+        type: "object"
+        properties:
+          name:
+            type: "string"
+            example: "success"
+
+  IdentityRequest:
+    type: "object"
+    required:
+    - identitynumber 
+    properties:
+      identitynumber :
+        type: "string"
+        example : "12313nnkjiid"
+  
+  IdentityResponse:
+    type: "object"
+    properties:
+      data:
+        type: "object"
+        properties:
+          id:
+            type: "string"
+            example: "one-success"
+
+  AccountNumberRequest:
+    type: "object"
+    required:
+    - accountnumber 
+    properties:
+      identitynumber :
+        type: "string"
+        example : "MKD-21313"
+  
+  AccountNumberResponse:
+    type: "object"
+    properties:
+      data:
+        type: "object"
+        properties:
+          id:
+            type: "string"
+            example: "success2"
+
+  Error:
+    type: "object"
+    properties:
+      data:
+        type: "object"
+        properties:
+          error:
+            type: "string"

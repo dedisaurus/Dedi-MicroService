@@ -13,7 +13,7 @@ var clusterWorkerSize = require('os').cpus().length;
 if (cluster.isMaster) {
 
     // start the UI
-    kue.app.listen( 3000 );
+    kue.app.listen( 8080 );
     console.log( 'UI started on port 3000' );
 
     for (var i = 0; i < clusterWorkerSize; i++) {
