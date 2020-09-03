@@ -108,15 +108,11 @@ definitions:
   CreateRequest:
     type: "object"
     required:
-    - id
     - username 
     - accountnumber
     - emailaddress 
     - identitynumber 
     properties:
-       id:
-        type: "string"
-        example: "1"
       username:
         type: "string"
         example: "username"
