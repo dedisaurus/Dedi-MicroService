@@ -4,7 +4,7 @@ info:
   description: >
     This is an example Koa API that provides two endpoints - a health check and a login.
   version: "1.0.0"
-host: "localhost:8080"
+host: "dedi-microservice-app.herokuapp.com"
 schemes:
   - "http"
 paths:
